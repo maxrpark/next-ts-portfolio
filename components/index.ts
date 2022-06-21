@@ -1,5 +1,5 @@
-import SectionOne from './SectionOne';
+import Articles from './Articles';
 import SectionTwo from './SectionTwo';
-import Sectionthree from './Sectionthree';
+import Sectionthree from './SectionThree';
 
-export { SectionOne, SectionTwo, Sectionthree };
+export { Articles, SectionTwo, Sectionthree };

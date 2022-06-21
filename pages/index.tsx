@@ -1,21 +1,22 @@
 import type { NextPage } from 'next';
-import { SectionOne, SectionTwo, Sectionthree } from '../components';
+import { Articles, SectionTwo, Sectionthree } from '../components';
 import styles from '../styles/Home.module.css';
-
+import styled from 'styled-components';
+import { Post } from '../ts/interfaces/globalInterfaces';
 interface Props {
-  projects: any[];
+  blogPosts: Post[];
 }
 
-const Home: NextPage<Props> = ({ projects }) => {
+const Home: NextPage<Props> = ({ blogPosts }) => {
   return (
     <div className={styles.container}>
-      <div className='header'>
+      <div>
         <h1>Hello World</h1>
         <h2>I'm Max</h2>
       </div>
 
       <section className={styles.sectionTest}></section>
-      <SectionOne projects={projects} />
+      <Articles blogPosts={blogPosts} />
       <SectionTwo />
       <Sectionthree />
       <section className={styles.sectionTest}></section>
@@ -34,10 +35,12 @@ export async function getStaticProps() {
 
   return {
     props: {
-      projects: data.slice(0, 5),
-      // projects: data.slice(0, 5),
+      blogPosts: data.slice(0, 5),
     },
   };
 }
-
+const Wrapper = styled.div`
+  font-size: 40px;
+  color: red;
+`;
 export default Home;

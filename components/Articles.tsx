@@ -1,21 +1,23 @@
 import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
 import { gsap } from 'gsap';
+import styled from 'styled-components';
+import { Post } from '../ts/interfaces/globalInterfaces';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 type Props = {
-  projects: any[];
+  blogPosts: Post[];
 };
 
-const SectionOne: NextPage<Props> = ({ projects }) => {
+const SectionOne: NextPage<Props> = ({ blogPosts }) => {
   const gsapAnimation = () => {
     const cards = gsap.utils.toArray('.card');
     cards.forEach((card: any, i: number) => {
       gsap.set(card, {
         // y: i * 30,
         x: i % 2 === 0 ? i * -70 : i * 70,
-        scale: (1 + i) * 0.2,
+        scale: (1 + i) * 0.1,
       });
     });
 
@@ -70,33 +72,69 @@ const SectionOne: NextPage<Props> = ({ projects }) => {
         '.section',
         {
           scale: 10,
-          background: 'black',
+          rotate: 'black',
         },
         '=-1.4'
       );
   };
 
   useEffect(() => {
-    if (projects.length > 0) gsapAnimation();
+    if (blogPosts.length > 0) gsapAnimation();
   }, []);
   return (
-    <div className='main'>
+    <Wrapper className='main'>
       <section className={`section main-container`}>
-        {projects.map((project) => {
+        {blogPosts.map((project) => {
           return (
-            <div className={`card`} key={project.id}>
-              <h3>{project.title}</h3>
-              {/* <img src={project.url} alt='' /> */}
+            <div className='card' key={project.id}>
               <img src={project.cover_image} alt='' />
               {project.tag_list.map((tag: string) => {
                 return <p key={tag}>{tag}</p>;
               })}
+
+              <a href={project.url}>Read More</a>
             </div>
           );
         })}
       </section>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  /*  */
+  .section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .sectionTest {
+    height: 600px;
+    background: black;
+  }
+
+  .card {
+    width: 300px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--white-color);
+    border-radius: var();
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card img {
+    width: 100%;
+    object-fit: contain;
+  }
+`;
 
 export default SectionOne;
