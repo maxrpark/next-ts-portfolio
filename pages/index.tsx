@@ -1,13 +1,20 @@
 import type { NextPage } from 'next';
-import { Articles, SectionTwo, Sectionthree } from '../components';
+import {
+  Articles,
+  SectionTwo,
+  FeaturedProjects,
+  Skills,
+  CursorFollow,
+} from '../components';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 import { Post } from '../ts/interfaces/globalInterfaces';
 interface Props {
   blogPosts: Post[];
+  projects: any[];
 }
 
-const Home: NextPage<Props> = ({ blogPosts }) => {
+const Home: NextPage<Props> = ({ blogPosts, projects }) => {
   return (
     <div className={styles.container}>
       <div>
@@ -16,9 +23,13 @@ const Home: NextPage<Props> = ({ blogPosts }) => {
       </div>
 
       <section className={styles.sectionTest}></section>
+
+      <Skills />
+      <CursorFollow />
       <Articles blogPosts={blogPosts} />
       <SectionTwo />
-      <Sectionthree />
+      <FeaturedProjects projects={projects} />
+
       <section className={styles.sectionTest}></section>
       <section className={styles.sectionTest}></section>
       <section className={styles.sectionTest}></section>
@@ -28,14 +39,16 @@ const Home: NextPage<Props> = ({ blogPosts }) => {
 
 export async function getStaticProps() {
   const resp = await fetch('https://dev.to/api/articles?username=maxrpark');
-  // const resp = await fetch(
-  //   'https://my-portfolio-blog-website.netlify.app/api/myProjects'
-  // );
+  const res = await fetch(
+    'https://my-portfolio-blog-website.netlify.app/api/myProjects'
+  );
   const data = await resp.json();
+  const project = await res.json();
 
   return {
     props: {
-      blogPosts: data.slice(0, 5),
+      blogPosts: data.slice(0, 5) as Post,
+      projects: project.slice(0, 5),
     },
   };
 }

@@ -15,3 +15,20 @@ export interface Post {
   cover_image: string;
   user: articleWriter;
 }
+
+export interface Project {
+  id: string;
+  name: string;
+  gitUrl: string;
+  pageUrl: string;
+  projectID: string;
+  shortDsc: string;
+  tag: string[];
+  url: string;
+  version: string;
+}
+export interface SkillInt {
+  id: number;
+  name: string;
+  icon: any;
+}

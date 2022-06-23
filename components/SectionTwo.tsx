@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
-
+import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -10,7 +10,7 @@ const SectionTwo: NextPage = () => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: '.sectionTwo',
-        start: 'top center',
+        start: 'top top',
         toggleActions: 'play none reverse pause',
         scrub: 0.6,
         markers: true,
@@ -50,11 +50,14 @@ const SectionTwo: NextPage = () => {
     animations();
   }, []);
   return (
-    <div className='sectionTwo'>
+    <Wrapper className='sectionTwo'>
       <h2 className='text title'>Visit all my projects</h2>
       <h3 className='text sub-title'>See more</h3>
-    </div>
+    </Wrapper>
   );
 };
-
+const Wrapper = styled.div`
+  height: 100vh;
+  overflow: hidden;
+`;
 export default SectionTwo;

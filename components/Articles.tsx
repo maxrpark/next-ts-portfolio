@@ -67,15 +67,15 @@ const SectionOne: NextPage<Props> = ({ blogPosts }) => {
           scale: 2,
         },
         0
-      )
-      .to(
-        '.section',
-        {
-          scale: 10,
-          rotate: 'black',
-        },
-        '=-1.4'
       );
+    // .to(
+    //   '.section',
+    //   {
+    //     scale: 10,
+    //     rotate: 'black',
+    //   },
+    //   '=-1.4'
+    // );
   };
 
   useEffect(() => {

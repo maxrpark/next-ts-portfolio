@@ -1,5 +1,7 @@
 import Articles from './Articles';
 import SectionTwo from './SectionTwo';
-import Sectionthree from './SectionThree';
+import FeaturedProjects from './FeaturedProjects';
+import Skills from './Skills';
+import CursorFollow from './CursorFollow';
 
-export { Articles, SectionTwo, Sectionthree };
+export { Articles, SectionTwo, FeaturedProjects, Skills, CursorFollow };
