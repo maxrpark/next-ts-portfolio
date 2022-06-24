@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
 import { gsap } from 'gsap';
 import styled from 'styled-components';
-import { Post } from '../ts/interfaces/globalInterfaces';
+import { Post } from '../../ts/interfaces/globalInterfaces';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 

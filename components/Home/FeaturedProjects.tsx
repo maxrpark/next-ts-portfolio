@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import { gsap } from 'gsap';
 import styled from 'styled-components';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { Project } from '../ts/interfaces/globalInterfaces';
+import { Project } from '../../ts/interfaces/globalInterfaces';
 gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
@@ -26,7 +26,7 @@ const Sectionthree: NextPage<Props> = ({ projects }) => {
 
     lt.to('.circle', {
       scale: 1,
-      duration: 3,
+      duration: 10,
     })
       .to(
         '.projects-container',
@@ -46,8 +46,8 @@ const Sectionthree: NextPage<Props> = ({ projects }) => {
         '-=2.5'
       )
       .to('.circle', {
-        scale: 0,
-        duration: 3,
+        scale: 0.3,
+        duration: 10,
       });
   };
   useEffect(() => {

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
-import { skills } from '../utils/';
-import { SkillInt } from '../ts/interfaces/globalInterfaces';
+import { skills } from '../../utils';
+import { SkillInt } from '../../ts/interfaces/globalInterfaces';
 import gsap from 'gsap';
 import { useEffect } from 'react';
 

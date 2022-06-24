@@ -5,6 +5,7 @@ import {
   FeaturedProjects,
   Skills,
   CursorFollow,
+  NewSection,
 } from '../components';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
@@ -24,6 +25,7 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
 
       <section className={styles.sectionTest}></section>
 
+      <NewSection />
       <Skills />
       <CursorFollow />
       <Articles blogPosts={blogPosts} />
