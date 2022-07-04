@@ -1,7 +1,7 @@
-import type { NextPage } from 'next';
-import { useRef, useEffect } from 'react';
-import styled from 'styled-components';
-import gsap from 'gsap';
+import type { NextPage } from "next";
+import { useRef, useEffect, useState } from "react";
+import styled from "styled-components";
+import gsap from "gsap";
 interface Cordinates {
   x: number;
   y: number;
@@ -10,28 +10,21 @@ interface Cordinates {
 const CursorFollow: NextPage = () => {
   const ball = useRef<HTMLDivElement>(null!);
   const innerBall = useRef<HTMLDivElement>(null!);
+  const [size, setSize] = useState<Number>();
 
   let pos: Cordinates;
   let mouse: Cordinates;
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     pos = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     mouse = { x: pos.x, y: pos.y };
   }
 
   const moveCoursorFunc = (e: MouseEvent): void => {
-    console.log(pos);
     gsap.set(ball.current, { xPercent: -50, yPercent: -50 });
     const speed = 0.35;
-    const xSet = gsap.quickSetter(ball.current, 'x', 'px');
-    const ySet = gsap.quickSetter(ball.current, 'y', 'px');
+    const xSet = gsap.quickSetter(ball.current, "x", "px");
+    const ySet = gsap.quickSetter(ball.current, "y", "px");
 
-    if (ball.current && innerBall.current !== null) {
-      if (ball.current.classList.contains('ball-zoom')) {
-        ball.current.classList.remove('ball-zoom');
-      } else {
-        innerBall.current.style.display = 'none';
-      }
-    }
     mouse!.x = e!.x;
     mouse!.y = e!.y;
 
@@ -42,16 +35,41 @@ const CursorFollow: NextPage = () => {
       xSet(pos.x);
       ySet(pos.y);
     });
+
+    // run costume function
+    const target = e.target as HTMLElement;
+
+    if (target && target.classList.contains("logo")) {
+      ball.current.classList.add("ball-zoom");
+      gsap.to(".logo", {
+        scale: 1.2,
+      });
+    } else {
+      ball.current.classList.remove("ball-zoom");
+      gsap.to(".logo", {
+        scale: 1,
+      });
+    }
   };
 
   useEffect(() => {
-    const media_query = 'screen and (min-width:1300px)';
-    const matched = window.matchMedia(media_query).matches;
-    if (matched) {
-      window.addEventListener('mousemove', moveCoursorFunc);
+    setSize(window.innerWidth);
+  }, []);
+  const getWindowSize = () => {
+    setSize(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", getWindowSize);
+    if (size && size > 960) {
+      window.addEventListener("mousemove", moveCoursorFunc);
+      ball.current.style.display = "block";
+    } else {
+      ball.current.style.display = "none";
     }
     return () => {
-      window.removeEventListener('mousemove', moveCoursorFunc);
+      window.removeEventListener("mousemove", moveCoursorFunc);
+      window.removeEventListener("resize", getWindowSize);
     };
   });
   return (

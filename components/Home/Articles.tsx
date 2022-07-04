@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import type { NextPage } from 'next';
-import { gsap } from 'gsap';
-import styled from 'styled-components';
-import { Post } from '../../ts/interfaces/globalInterfaces';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import React, { useEffect } from "react";
+import type { NextPage } from "next";
+import { gsap } from "gsap";
+import styled from "styled-components";
+import { Post } from "../../ts/interfaces/globalInterfaces";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 type Props = {
@@ -12,25 +12,25 @@ type Props = {
 
 const SectionOne: NextPage<Props> = ({ blogPosts }) => {
   const gsapAnimation = () => {
-    const cards = gsap.utils.toArray('.card');
+    const cards = gsap.utils.toArray(".card");
     cards.forEach((card: any, i: number) => {
       gsap.set(card, {
         // y: i * 30,
         x: i % 2 === 0 ? i * -70 : i * 70,
-        scale: (1 + i) * 0.1,
+        scale: (1 + i) * 0.2,
       });
     });
 
     const tl = gsap.timeline({
-      ease: 'none',
+      ease: "none",
       scrollTrigger: {
-        trigger: '.main-container',
-        start: 'top top',
-        toggleActions: 'play none reverse pause',
+        trigger: ".main-container",
+        start: "top top",
+        toggleActions: "play none reverse pause",
         scrub: 0.6,
-        pinSpacing: '.main-container',
+        pinSpacing: ".main-container",
         markers: true,
-        pin: '.main-container',
+        pin: ".main-container",
       },
     });
 
@@ -43,9 +43,9 @@ const SectionOne: NextPage<Props> = ({ blogPosts }) => {
         scale: 4,
         x: gsap.utils.wrap([-1500, 1500]),
         y: 200,
-        transformOrigin: 'center center',
+        transformOrigin: "center center",
       },
-      '-=0.1'
+      "-=0.1"
     )
       .to(reversecardsArray, {
         stagger: 0.2,
@@ -59,10 +59,10 @@ const SectionOne: NextPage<Props> = ({ blogPosts }) => {
           opacity: 0,
           duration: 1.5,
         },
-        '=-1.4'
+        "=-1.4"
       )
       .to(
-        '.section',
+        ".section",
         {
           scale: 2,
         },
@@ -88,11 +88,19 @@ const SectionOne: NextPage<Props> = ({ blogPosts }) => {
           return (
             <div className='card' key={project.id}>
               <img src={project.cover_image} alt='' />
-              {project.tag_list.map((tag: string) => {
-                return <p key={tag}>{tag}</p>;
-              })}
+              <div className='tags'>
+                {project.tag_list.map((tag: string) => {
+                  return (
+                    <p className='single-tag' key={tag}>
+                      {tag}
+                    </p>
+                  );
+                })}{" "}
+              </div>
 
-              <a href={project.url}>Read More</a>
+              <a className='link' href={project.url}>
+                Read
+              </a>
             </div>
           );
         })}
@@ -107,7 +115,7 @@ const Wrapper = styled.div`
     position: relative;
     height: 100vh;
     overflow: hidden;
-    background-image: url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg');
+    background-image: url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -120,7 +128,7 @@ const Wrapper = styled.div`
 
   .card {
     width: 300px;
-    height: 250px;
+    height: 200px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -130,10 +138,49 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: c; */
   }
   .card img {
     width: 100%;
     object-fit: contain;
+  }
+  .tags {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    text-transform: capitalize;
+    margin-top: 0.5rem;
+  }
+  .single-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.5rem;
+    transition: var(--transition-1);
+    font-size: 0.8rem;
+    height: 25px;
+  }
+  .single-tag:hover {
+    /* opacity: 0.7; */
+    background: red;
+  }
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--black-color);
+    color: var(--white-color);
+    padding: 0.1rem 0.2rem;
+    border-radius: 0.5rem;
+    transition: var(--transition-1);
+    font-size: 0.8rem;
+    height: 25px;
+    margin-top: 1rem;
   }
 `;
 

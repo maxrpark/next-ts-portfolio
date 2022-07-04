@@ -1,7 +1,9 @@
-import type { NextPage } from 'next';
-import styled from 'styled-components';
-import gsap from 'gsap';
-import { useEffect } from 'react';
+import type { NextPage } from "next";
+import styled from "styled-components";
+import gsap from "gsap";
+import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 type Props = {};
 
@@ -9,42 +11,71 @@ const NewSection: NextPage = () => {
   const animation = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.newSection',
-        start: 'top top',
-        toggleActions: 'play none reverse pause',
+        trigger: ".newSection",
+        start: "top top",
+        toggleActions: "play none reverse pause",
         scrub: true,
         pinSpacing: true,
 
-        pin: '.newSection',
+        pin: ".newSection",
         markers: true,
       },
     });
-    tl.to('.left-text', {
-      opacity: 1,
-      // yPercent: -document.querySelector('.left-one')!.offsetHeight,
-      yPercent: -document.querySelector('.left-one')!.offsetHeight,
-      duration: 3,
+    tl.to(".left-one", {
+      yPercent: -100,
     }).to(
-      '.right',
+      ".right",
       {
-        background: 'blue',
+        background: "blue",
       },
-      '-=.5'
+      "-=.5"
     );
   };
+
+  const sectionAnimation = () => {
+    let singleSection = gsap.utils.toArray(".left-text");
+
+    singleSection.forEach((element) => {
+      let title = (element as HTMLElement).querySelector(".title");
+
+      let sectionTL = gsap.timeline().to(title, {
+        rotate: 360,
+        background: "white",
+      });
+
+      ScrollTrigger.create({
+        trigger: element as HTMLElement,
+        start: "top top",
+        toggleActions: "play none reverse pause",
+        scrub: true,
+        markers: true,
+        animation: sectionTL,
+      });
+    });
+  };
   useEffect(() => {
-    gsap.set('.single-section', {
-      background: gsap.utils.wrap(['red', 'pink']),
+    gsap.set(".left-text", {
+      background: gsap.utils.wrap(["orange", "red", "yellow"]),
+    });
+    gsap.set(".single-section", {
+      background: gsap.utils.wrap(["red", "pink"]),
     });
     animation();
+    sectionAnimation();
   }, []);
   return (
     <Wrapper className='newSection'>
       <div className='single-section left'>
         <div className='left-one'>
-          <div className='left-text'>Hello</div>
-          <div className='left-text'>from</div>
-          <div className='left-text'>another planet</div>
+          <div className='left-text'>
+            <h2 className='title'>React</h2>
+          </div>
+          <div className='left-text'>
+            <h2 className='title'>Vue</h2>
+          </div>
+          <div className='left-text'>
+            <h2 className='title'>Django</h2>
+          </div>
         </div>
       </div>
       <div className='single-section right'>Hello</div>
@@ -57,10 +88,8 @@ const Wrapper = styled.section`
   align-items: stretch;
   .single-section {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
+    max-height: 500px;
+    overflow: hidden;
   }
   .left {
     flex-direction: column;
@@ -69,8 +98,7 @@ const Wrapper = styled.section`
   }
   .left-one {
     width: 100%;
-    overflow: hidden;
-    max-height: 60vh;
+    height: 1500px;
   }
   .left-text {
     /* opacity: 0; */

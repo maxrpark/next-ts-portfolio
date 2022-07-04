@@ -13,7 +13,8 @@ a {
   --black-color: #000;
   --primary-color-1: #ff5a5f;
 
-  --animation-1: 0.5s ease-in-out;
+  --transition-1: 0.3s ease-in-out;
+  --transition-2: 0.5s ease-in-out;
 
   --border-radius-1: 5px;
 }
