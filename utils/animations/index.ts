@@ -1,3 +1,3 @@
-import articleAnimation from "./articles";
+import { articleAnimation, articleImageHover } from "./articles";
 
-export { articleAnimation };
+export { articleAnimation, articleImageHover };

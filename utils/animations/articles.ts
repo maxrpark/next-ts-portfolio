@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const articleAnimation = () => {
+export const articleAnimation = () => {
   const cards = gsap.utils.toArray(".card");
   cards.forEach((card: any, i: number) => {
     gsap.set(card, {
@@ -69,4 +69,18 @@ const articleAnimation = () => {
   // );
 };
 
-export default articleAnimation;
+export const articleImageHover = (target: HTMLElement) => {
+  if (target.classList.contains("articleImg")) {
+    gsap.to(target, {
+      scale: 1.3,
+      ease: "none",
+      rotate: 5,
+    });
+  } else {
+    gsap.to(".articleImg", {
+      scale: 1,
+      rotate: 0,
+      ease: "none",
+    });
+  }
+};

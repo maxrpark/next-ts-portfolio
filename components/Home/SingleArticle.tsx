@@ -8,7 +8,9 @@ interface Props {
 const SingleArticle: NextPage<Props> = ({ post }) => {
   return (
     <Wrapper className='card' key={post.id}>
-      <img src={post.cover_image} alt='' />
+      <div className='image-container'>
+        <img className='articleImg' src={post.cover_image} alt='' />
+      </div>
       <div className='tags'>
         {post.tag_list.map((tag: string) => {
           return (
@@ -28,7 +30,7 @@ const SingleArticle: NextPage<Props> = ({ post }) => {
 
 const Wrapper = styled.div`
   width: 300px;
-  height: fit-content;
+  /* height: fit-content; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -40,10 +42,17 @@ const Wrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem;
+  overflow: hidden;
+  transition: var(--transition-1);
 
-  img {
+  .image-container {
+    overflow: hidden;
+  }
+
+  .articleImg {
     width: 100%;
     object-fit: contain;
+    /* transition: var(--transition-1); */
   }
   .tags {
     display: flex;
@@ -67,7 +76,7 @@ const Wrapper = styled.div`
   }
 
   .link {
-    height: 25px;
+    height: 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -77,10 +86,12 @@ const Wrapper = styled.div`
     padding: 0.1rem 0.2rem;
     transition: var(--transition-1);
     font-size: 0.8rem;
+    transform: translateY(40px);
   }
-  .link:hover {
-    /* opacity: 0.7; */
+  :hover .link {
+    transform: translateY(0);
     background: red;
+    height: 25px;
   }
 `;
 

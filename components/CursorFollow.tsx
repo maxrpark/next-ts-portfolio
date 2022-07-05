@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
+import { articleImageHover } from "../utils/animations";
 interface Cordinates {
   x: number;
   y: number;
@@ -38,8 +39,9 @@ const CursorFollow: NextPage = () => {
 
     // run costume function
     const target = e.target as HTMLElement;
+    articleImageHover(target);
 
-    if (target && target.classList.contains("readMore")) {
+    if (target && target.parentElement!.classList.contains("isHovering")) {
       ball.current.classList.add("ball-zoom");
       // innerBall.current.textContent = "Read More";
       // console.log(innerBall.current);
