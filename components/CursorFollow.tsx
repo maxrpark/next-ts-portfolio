@@ -39,16 +39,12 @@ const CursorFollow: NextPage = () => {
     // run costume function
     const target = e.target as HTMLElement;
 
-    if (target && target.classList.contains("logo")) {
+    if (target && target.classList.contains("readMore")) {
       ball.current.classList.add("ball-zoom");
-      gsap.to(".logo", {
-        scale: 1.2,
-      });
+      // innerBall.current.textContent = "Read More";
+      // console.log(innerBall.current);
     } else {
       ball.current.classList.remove("ball-zoom");
-      gsap.to(".logo", {
-        scale: 1,
-      });
     }
   };
 
@@ -75,7 +71,7 @@ const CursorFollow: NextPage = () => {
   return (
     <Wrapper>
       <div className='ball' ref={ball}>
-        <div className='ball-inner' ref={innerBall}></div>
+        {/* <div className='ball-inner' ref={innerBall}></div> */}
       </div>
     </Wrapper>
   );
@@ -103,17 +99,17 @@ const Wrapper = styled.section`
     background-color: white;
     border-radius: 50%;
     z-index: 2;
-    display: none;
+    /* display: none; */
   }
   .ball-inner p {
-    height: 100%;
+    /* height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     color: var(--color-white);
-    text-transform: capitalize;
+    text-transform: capitalize; */
   }
   @media screen and (max-width: 1300px) {
     .ball {

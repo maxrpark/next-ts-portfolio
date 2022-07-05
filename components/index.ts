@@ -1,12 +1,13 @@
 // Home
-import Articles from './Home/Articles';
-import SectionTwo from './Home/SectionTwo';
-import FeaturedProjects from './Home/FeaturedProjects';
-import Skills from './Home/Skills';
-import NewSection from './Home/NewSection';
+import Articles from "./Home/Articles";
+import SingleArticle from "./Home/SingleArticle";
+import SectionTwo from "./Home/SectionTwo";
+import FeaturedProjects from "./Home/FeaturedProjects";
+import Skills from "./Home/Skills";
+import NewSection from "./Home/NewSection";
 
 // others
-import CursorFollow from './CursorFollow';
+import CursorFollow from "./CursorFollow";
 
 export {
   Articles,
@@ -15,4 +16,5 @@ export {
   Skills,
   CursorFollow,
   NewSection,
+  SingleArticle,
 };
