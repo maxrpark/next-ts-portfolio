@@ -7,7 +7,7 @@ interface Props {
 
 const SingleArticle: NextPage<Props> = ({ post }) => {
   return (
-    <Wrapper className='card' key={post.id}>
+    <Wrapper className='card'>
       <div className='image-container'>
         <img className='articleImg' src={post.cover_image} alt='' />
       </div>

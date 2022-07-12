@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+// import { SmoothScrollProvider } from "../utils/animations/SmoothScroll";
 import {
   Articles,
   SectionTwo,
@@ -9,6 +10,7 @@ import {
 } from "../components";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
+// import { SmoothScroll } from "../utils/animations";
 import { Post } from "../ts/interfaces/globalInterfaces";
 interface Props {
   blogPosts: Post[];
@@ -16,7 +18,10 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ blogPosts, projects }) => {
+  console.log("hey");
+
   return (
+    // <SmoothScrollProvider>
     <div className={styles.container}>
       <CursorFollow />
       <div>
@@ -31,12 +36,14 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
             <Skills />
       
             <SectionTwo />
-            <FeaturedProjects projects={projects} /> */}
+             */}
+      <FeaturedProjects projects={projects} />
 
       <section className={styles.sectionTest}></section>
       <section className={styles.sectionTest}></section>
       <section className={styles.sectionTest}></section>
     </div>
+    // </SmoothScrollProvider>
   );
 };
 
