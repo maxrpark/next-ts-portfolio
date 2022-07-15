@@ -41,7 +41,11 @@ const CursorFollow: NextPage = () => {
     const target = e.target as HTMLElement;
     articleImageHover(target);
 
-    if (target && target.parentElement!.classList.contains("isHovering")) {
+    if (
+      target &&
+      target.parentElement &&
+      target.parentElement.classList.contains("isHovering")
+    ) {
       ball.current.classList.add("ball-zoom");
       // innerBall.current.textContent = "Read More";
       // console.log(innerBall.current);

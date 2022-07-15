@@ -1,6 +1,7 @@
 // Home
 import Articles from "./Home/Articles";
 import SingleArticle from "./Home/SingleArticle";
+import WordpressProjects from "./Home/WordpressProjects";
 import SectionTwo from "./Home/SectionTwo";
 import FeaturedProjects from "./Home/FeaturedProjects";
 import Skills from "./Home/Skills";
@@ -17,4 +18,5 @@ export {
   CursorFollow,
   NewSection,
   SingleArticle,
+  WordpressProjects,
 };

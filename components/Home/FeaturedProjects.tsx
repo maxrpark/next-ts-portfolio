@@ -1,72 +1,16 @@
 import React, { useEffect } from "react";
 import type { NextPage } from "next";
-import { gsap } from "gsap";
 import styled from "styled-components";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Project } from "../../ts/interfaces/globalInterfaces";
-
-gsap.registerPlugin(ScrollTrigger);
+import { featuredProjectsAnimation } from "../../utils/animations/featuredProjects";
 
 interface Props {
   projects: Project[];
 }
 
 const Sectionthree: NextPage<Props> = ({ projects }) => {
-  const animation = () => {
-    const lt = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".circle-container",
-        start: "top top",
-        toggleActions: "play none reverse pause",
-        scrub: true,
-        pinSpacing: true,
-
-        pin: ".circle-container",
-      },
-    });
-
-    lt.to(".circle", {
-      scale: 1,
-      duration: 3,
-    })
-      .to(
-        ".projects-container",
-        {
-          xPercent: -100,
-          x: () => innerWidth,
-          duration: 3,
-        },
-        0
-      )
-      .to(
-        ".singleProject",
-        {
-          scale: 1.1,
-          stagger: 0.3,
-        },
-        "-=2.5"
-      )
-      .to(".circle", {
-        scale: 0.3,
-        duration: 5,
-        background: "blue",
-      })
-      .to(
-        ".singleProject",
-        {
-          scale: 1.0,
-          rotate: 360,
-          duration: 5,
-          stagger: 0.3,
-        },
-        "=<"
-      );
-  };
   useEffect(() => {
-    gsap.set(".projects-container", {
-      xPercent: 100,
-    });
-    animation();
+    featuredProjectsAnimation();
   }, []);
   return (
     <Wrapper className='circle-container'>

@@ -6,6 +6,7 @@ import {
   FeaturedProjects,
   Skills,
   CursorFollow,
+  WordpressProjects,
   NewSection,
 } from "../components";
 import styles from "../styles/Home.module.css";
@@ -18,7 +19,7 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ blogPosts, projects }) => {
-  console.log("hey");
+  // console.log("hey");
 
   return (
     // <SmoothScrollProvider>
@@ -34,10 +35,11 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
       {/* <NewSection /> */}
       {/*
             <Skills />
-      
+            
             <SectionTwo />
-             */}
+          */}
       <FeaturedProjects projects={projects} />
+      <WordpressProjects />
 
       <section className={styles.sectionTest}></section>
       <section className={styles.sectionTest}></section>

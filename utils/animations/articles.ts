@@ -14,11 +14,15 @@ export const articleAnimation = () => {
 
   const tl = gsap.timeline({
     ease: "none",
-
     scrollTrigger: {
       trigger: ".main-container",
       start: "top top",
       // scroller: "#smooth-scroll",
+      end: () =>
+        "+=" +
+        (document.querySelector(".main-container") as HTMLElement)!
+          .offsetHeight *
+          2,
       toggleActions: "play none reverse pause",
       scrub: 0.1,
       pinSpacing: ".main-container",
@@ -53,7 +57,6 @@ export const articleAnimation = () => {
       // "-=0.1"
     )
     .to(reversecardsArray, {
-      // scrub: false,
       stagger: 2,
       scale: 4,
       x: gsap.utils.wrap([-1500, 1500]),
@@ -62,7 +65,6 @@ export const articleAnimation = () => {
       duration: 8,
     })
     .to(reversecardsArray, {
-      // stagger: 0.2,
       opacity: 0,
     })
     .to(
@@ -71,9 +73,9 @@ export const articleAnimation = () => {
         stagger: 0.6,
         scale: 4,
         opacity: 0,
-        duration: 2,
+        duration: 4,
       },
-      "-=2"
+      "-=4"
     )
     .to(
       ".section",
