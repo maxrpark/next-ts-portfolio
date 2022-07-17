@@ -32,12 +32,12 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
 
       <section className={styles.sectionTest}></section>
       <Articles blogPosts={blogPosts} />
-      {/* <NewSection /> */}
-      {/*
-            <Skills />
-            
-            <SectionTwo />
-          */}
+      <NewSection />
+
+      <Skills />
+
+      <SectionTwo />
+
       <FeaturedProjects projects={projects} />
       <WordpressProjects />
 
