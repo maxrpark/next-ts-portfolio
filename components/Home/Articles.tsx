@@ -24,10 +24,10 @@ const SectionOne: NextPage<Props> = ({ blogPosts }) => {
           </div>
           <div className='article-section__subtitle'>
             {/* <h3>Read them on Medium</h3> */}
-            <h3>Read</h3>
-            <h3>them</h3>
-            <h3>on</h3>
-            <h3>Medium</h3>
+            <h3>My</h3>
+            <h3>latest</h3>
+            <h3>Articles</h3>
+            {/* <h3>Medium</h3> */}
           </div>
         </div>
 

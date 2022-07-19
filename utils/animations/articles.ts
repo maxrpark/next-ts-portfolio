@@ -22,7 +22,7 @@ export const articleAnimation = () => {
         "+=" +
         (document.querySelector(".main-container") as HTMLElement)!
           .offsetHeight *
-          2,
+          1.5,
       toggleActions: "play none reverse pause",
       scrub: 0.1,
       pinSpacing: ".main-container",
@@ -33,6 +33,8 @@ export const articleAnimation = () => {
 
   const reversecardsArray = cards.slice(1).reverse();
   const firstCard = cards[0] as any;
+  console.log(firstCard);
+
   tl.fromTo(
     ".article-title",
     {
@@ -57,12 +59,25 @@ export const articleAnimation = () => {
       // "-=0.1"
     )
     .to(reversecardsArray, {
-      stagger: 2,
+      stagger: {
+        each: 1,
+        ease: "none",
+      },
       scale: 4,
-      x: gsap.utils.wrap([-1500, 1500]),
-      y: 200,
+      ease: "none",
+      x: gsap.utils.wrap([
+        `-${
+          (document.querySelector(".main-container") as HTMLElement)!
+            .offsetWidth
+        }`,
+        `${
+          (document.querySelector(".main-container") as HTMLElement)!
+            .offsetWidth
+        }`,
+      ]),
+      // y: 200,
+      duration: 1,
       transformOrigin: "center center",
-      duration: 8,
     })
     .to(reversecardsArray, {
       opacity: 0,
@@ -72,27 +87,26 @@ export const articleAnimation = () => {
       {
         stagger: 0.6,
         scale: 4,
-        opacity: 0,
-        duration: 4,
+        ease: "none",
+        duration: 2,
       },
-      "-=4"
+      "-=.5"
+    )
+    .to(
+      firstCard,
+      {
+        opacity: 0,
+      },
+      "-=.5"
     )
     .to(
       ".section",
       {
         scale: 2,
-        duration: 5,
+        duration: 7,
       },
       2
     );
-  // .to(
-  //   '.section',
-  //   {
-  //     scale: 10,
-  //     rotate: 'black',
-  //   },
-  //   '=-1.4'
-  // );
 };
 
 export const articleImageHover = (target: HTMLElement) => {

@@ -31,15 +31,16 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
       </div>
 
       <section className={styles.sectionTest}></section>
-      <Articles blogPosts={blogPosts} />
-      <NewSection />
+      {/* <Articles blogPosts={blogPosts} /> */}
+      {/* <NewSection /> */}
+      <WordpressProjects projects={projects.slice(0, 3)} />
+      {/*WordpressProjects
 
       <Skills />
 
       <SectionTwo />
 
-      <FeaturedProjects projects={projects} />
-      <WordpressProjects />
+      <FeaturedProjects /> */}
 
       <section className={styles.sectionTest}></section>
       <section className={styles.sectionTest}></section>
@@ -56,11 +57,14 @@ export async function getStaticProps() {
   );
   const data = await resp.json();
   const project = await res.json();
+  console.log(project);
 
   return {
     props: {
       blogPosts: data.slice(0, 5) as Post,
-      projects: project.slice(0, 5),
+      projects: project.filter((project: any) =>
+        project.tags.find((p: string) => p === "wordpress")
+      ),
     },
   };
 }

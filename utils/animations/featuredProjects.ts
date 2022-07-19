@@ -28,8 +28,23 @@ export const featuredProjectsAnimation = () => {
 
   lt.to(".circle", {
     scale: 1,
-    duration: 3,
+    duration: 2,
   })
+    .to(".circle", {
+      scale: 1,
+      duration: 1,
+      background: "blue",
+      borderRadius: 0,
+      width: "100vw",
+      height: "60%",
+    })
+    .to(
+      ".circle",
+      {
+        rotate: -90,
+      }
+      // "-=.5"
+    )
     .to(
       ".projects-container",
       {
@@ -37,7 +52,7 @@ export const featuredProjectsAnimation = () => {
         x: () => innerWidth,
         duration: 3,
       },
-      0
+      1
     )
     .to(
       ".singleProject",
@@ -47,11 +62,6 @@ export const featuredProjectsAnimation = () => {
       },
       "-=2.5"
     )
-    .to(".circle", {
-      scale: 0.3,
-      duration: 5,
-      background: "blue",
-    })
     .to(
       ".singleProject",
       {
@@ -61,5 +71,12 @@ export const featuredProjectsAnimation = () => {
         stagger: 0.3,
       },
       "=<"
+    )
+    .to(
+      ".wp-title-text",
+      {
+        color: " white",
+      },
+      0.2
     );
 };
