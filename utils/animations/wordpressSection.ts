@@ -1,9 +1,9 @@
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-import { useEffect } from "react";
+import { TextPlugin } from "gsap/dist/TextPlugin";
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-export const featuredProjectsAnimation = () => {
+export const wordpressSectionAnimation = () => {
   gsap.set(".projects-container", {
     xPercent: 100,
   });
@@ -36,15 +36,8 @@ export const featuredProjectsAnimation = () => {
       background: "blue",
       borderRadius: 0,
       width: "100vw",
-      height: "60%",
+      height: "20%",
     })
-    .to(
-      ".circle",
-      {
-        rotate: -90,
-      }
-      // "-=.5"
-    )
     .to(
       ".projects-container",
       {
@@ -52,31 +45,30 @@ export const featuredProjectsAnimation = () => {
         x: () => innerWidth,
         duration: 3,
       },
-      1
-    )
-    .to(
-      ".singleProject",
-      {
-        scale: 1.2,
-        stagger: 0.3,
-      },
-      "-=2.5"
-    )
-    .to(
-      ".singleProject",
-      {
-        scale: 1.0,
-        // rotate: 360,
-        duration: 5,
-        stagger: 0.3,
-      },
-      "=<"
+      0
     )
     .to(
       ".wp-title-text",
       {
-        color: " white",
+        duration: 1,
+        text: "This is the new text",
+        ease: "none",
+        delimiter: " ",
       },
-      0.2
+      1
+    )
+    .to(".wp-title-text", {
+      duration: 0,
+      text: "Hello",
+      ease: "none",
+      delimiter: " ",
+    })
+    .to(
+      ".circle",
+      {
+        rotate: -90,
+        height: "60%",
+      }
+      // "-=.5"
     );
 };

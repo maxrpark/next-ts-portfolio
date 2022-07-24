@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import type { NextPage } from "next";
 import styled from "styled-components";
 import { Project } from "../../ts/interfaces/globalInterfaces";
-import { featuredProjectsAnimation } from "../../utils/animations/featuredProjects";
+import { wordpressSectionAnimation } from "../../utils/animations/wordpressSection";
 
 interface Props {
   projects: Project[];
@@ -10,7 +10,7 @@ interface Props {
 
 const Sectionthree: NextPage<Props> = ({ projects }) => {
   useEffect(() => {
-    featuredProjectsAnimation();
+    wordpressSectionAnimation();
   }, []);
   return (
     <Wrapper className='circle-container'>

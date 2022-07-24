@@ -33,15 +33,16 @@ const WordpressProjects: NextPage = () => {
           },
         });
         // Use standard vertical scroll pinning
-      } else {
-        ScrollTrigger.create({
-          trigger: section as any,
-          start: () => "top top",
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-        });
       }
+      // else {
+      //   ScrollTrigger.create({
+      //     trigger: section as any,
+      //     start: () => "top top",
+      //     pin: true,
+      //     pinSpacing: true,
+      //     anticipatePin: 1,
+      //   });
+      // }
     });
   };
   useEffect(() => {
@@ -50,7 +51,7 @@ const WordpressProjects: NextPage = () => {
   }, []);
   return (
     <Wrapper className='container-wrapper'>
-      <section className='scroll-section --red'>
+      {/* <section className='scroll-section --red'>
         <div className='section__card'>
           <h1 className='section__title'>Section 1</h1>
         </div>
@@ -59,7 +60,7 @@ const WordpressProjects: NextPage = () => {
         <div className='section__card'>
           <h1 className='section__title'>Section 2</h1>
         </div>
-      </section>
+      </section> */}
       <section className='scroll-section' id='horizontal'>
         <div className='section__cards'>
           <div className='section__card'>
@@ -73,11 +74,11 @@ const WordpressProjects: NextPage = () => {
           </div>
         </div>
       </section>
-      <section className='scroll-section'>
+      {/* <section className='scroll-section'>
         <div className='section__card'>
           <h1 className='section__title'>Section 4</h1>
         </div>
-      </section>
+      </section> */}
 
       <section className='scroll-section' id='horizontal'>
         <div className='section__cards'>

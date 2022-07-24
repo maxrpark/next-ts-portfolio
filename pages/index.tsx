@@ -32,9 +32,10 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
 
       <section className={styles.sectionTest}></section>
       {/* <Articles blogPosts={blogPosts} /> */}
-      {/* <NewSection /> */}
-      <WordpressProjects projects={projects.slice(0, 3)} />
-      {/*WordpressProjects
+      <NewSection />
+      {/* <WordpressProjects projects={projects.slice(0, 3)} /> */}
+      {/* <FeaturedProjects /> */}
+      {/*
 
       <Skills />
 
@@ -57,7 +58,6 @@ export async function getStaticProps() {
   );
   const data = await resp.json();
   const project = await res.json();
-  console.log(project);
 
   return {
     props: {

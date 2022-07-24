@@ -1,4 +1,4 @@
 import { articleAnimation, articleImageHover } from "./articles";
-import { featuredProjectsAnimation } from "./featuredProjects";
+import { wordpressSectionAnimation } from "./wordpressSection";
 // import SmoothScroll from "./SmoothScroll";
-export { articleAnimation, articleImageHover, featuredProjectsAnimation };
+export { articleAnimation, articleImageHover, wordpressSectionAnimation };
