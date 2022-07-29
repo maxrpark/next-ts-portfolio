@@ -18,6 +18,9 @@ a {
 
   --border-radius-1: 5px;
 }
+body {
+  background-color: black;
+}
 
 .text {
   position: absolute;

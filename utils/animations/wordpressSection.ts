@@ -30,14 +30,6 @@ export const wordpressSectionAnimation = () => {
     scale: 1,
     duration: 2,
   })
-    .to(".circle", {
-      scale: 1,
-      duration: 1,
-      background: "blue",
-      borderRadius: 0,
-      width: "100vw",
-      height: "20%",
-    })
     .to(
       ".projects-container",
       {
@@ -51,18 +43,30 @@ export const wordpressSectionAnimation = () => {
       ".wp-title-text",
       {
         duration: 1,
+        text: "Wordpress Projects",
+        ease: "none",
+        delimiter: " ",
+      },
+      0
+    )
+    .to(".circle", {
+      scale: 1,
+      duration: 1,
+      background: "blue",
+      borderRadius: 0,
+      width: "100vw",
+      height: "20%",
+    })
+    .to(
+      ".wp-title-text",
+      {
+        duration: 1,
         text: "This is the new text",
         ease: "none",
         delimiter: " ",
       },
-      1
+      "<"
     )
-    .to(".wp-title-text", {
-      duration: 0,
-      text: "Hello",
-      ease: "none",
-      delimiter: " ",
-    })
     .to(
       ".circle",
       {
@@ -70,5 +74,11 @@ export const wordpressSectionAnimation = () => {
         height: "60%",
       }
       // "-=.5"
-    );
+    )
+    .to(".wp-title-text", {
+      duration: 1,
+      text: "Hello baby",
+      ease: "none",
+      delimiter: " ",
+    });
 };

@@ -12,17 +12,17 @@ const NewSection: NextPage = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".newSection",
-        start: "top top",
+        start: "top center",
         toggleActions: "play none reverse pause",
         scrub: true,
-        pinSpacing: true,
+        // pinSpacing: true,
 
         pin: ".newSection",
-        markers: true,
+        // markers: true,
       },
     });
-    tl.to(".left-one", {
-      yPercent: -100,
+    tl.to(".left-text", {
+      yPercent: -200,
     }).to(
       ".right",
       {
@@ -35,18 +35,22 @@ const NewSection: NextPage = () => {
   const sectionAnimation = () => {
     let singleSection = gsap.utils.toArray(".left-text");
 
-    singleSection.forEach((element) => {
+    singleSection.forEach((element, index) => {
       let title = (element as HTMLElement).querySelector(".title");
 
       let sectionTL = gsap.timeline().to(title, {
-        rotate: 360,
-        background: "white",
+        scale: 2,
+        opacity: 1,
+        x: 0,
+        duration: 0.2,
       });
 
       ScrollTrigger.create({
         trigger: element as HTMLElement,
-        start: "top top",
+        start: "top 70%",
+        // end: "-=300",
         toggleActions: "play none reverse pause",
+
         scrub: true,
         markers: true,
         animation: sectionTL,
@@ -86,19 +90,21 @@ const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: stretch;
+  overflow: hidden;
+  height: fit-content;
+
   .single-section {
     width: 100%;
-    max-height: 500px;
-    overflow: hidden;
+    height: 500px;
   }
   .left {
     flex-direction: column;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
   }
   .left-one {
     width: 100%;
-    height: 1500px;
+    height: fit-content;
   }
   .left-text {
     /* opacity: 0; */
@@ -110,6 +116,12 @@ const Wrapper = styled.section`
     width: 100%;
     background: blue;
     border: 2px solid red;
+    position: relative;
+  }
+  .title {
+    position: absolute;
+    transform: translateY(-30px);
+    opacity: 0;
   }
 `;
 export default NewSection;

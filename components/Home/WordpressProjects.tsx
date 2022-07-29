@@ -16,7 +16,7 @@ const Sectionthree: NextPage<Props> = ({ projects }) => {
     <Wrapper className='circle-container'>
       <div className='circle'></div>
       <div className='wp-title-container'>
-        <h2 className='wp-title-text'>Wordpress Projects</h2>
+        <h2 className='wp-title-text'></h2>
       </div>
       <div className='projects-container'>
         {projects.map((project: Project) => {

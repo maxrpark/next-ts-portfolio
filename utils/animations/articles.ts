@@ -24,9 +24,8 @@ export const articleAnimation = () => {
           .offsetHeight *
           1.5,
       toggleActions: "play none reverse pause",
-      scrub: 0.1,
+      scrub: true,
       pinSpacing: ".main-container",
-      markers: true,
       pin: ".main-container",
     },
   });
@@ -63,8 +62,8 @@ export const articleAnimation = () => {
         each: 1,
         ease: "none",
       },
+      duration: 4,
       scale: 4,
-      ease: "none",
       x: gsap.utils.wrap([
         `-${
           (document.querySelector(".main-container") as HTMLElement)!
@@ -75,9 +74,6 @@ export const articleAnimation = () => {
             .offsetWidth
         }`,
       ]),
-      // y: 200,
-      duration: 1,
-      transformOrigin: "center center",
     })
     .to(reversecardsArray, {
       opacity: 0,
@@ -90,14 +86,14 @@ export const articleAnimation = () => {
         ease: "none",
         duration: 2,
       },
-      "-=.5"
+      "-=3"
     )
     .to(
       firstCard,
       {
         opacity: 0,
       },
-      "-=.5"
+      "-=1"
     )
     .to(
       ".section",
