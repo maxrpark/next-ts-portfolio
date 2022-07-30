@@ -13,7 +13,6 @@ export const SmoothScrollProvider = ({ children }) => {
   const scrollWrapper = useRef();
 
   useEffect(() => {
-    // setTimeout(() => {
     if (!scroll) {
       (async () => {
         try {
@@ -57,9 +56,8 @@ export const SmoothScrollProvider = ({ children }) => {
           });
 
           ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-          setTimeout(() => {
-            locoScroll.update();
-          }, 1000);
+
+          locoScroll.update();
         } catch (error) {
           throw Error(`[SmoothScrollProvider]: ${error}`);
         }

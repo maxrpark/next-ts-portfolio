@@ -10,7 +10,9 @@ interface Props {
 
 const Sectionthree: NextPage<Props> = ({ projects }) => {
   useEffect(() => {
-    wordpressSectionAnimation();
+    setTimeout(() => {
+      wordpressSectionAnimation();
+    }, 100);
   }, []);
   return (
     <Wrapper className='circle-container'>

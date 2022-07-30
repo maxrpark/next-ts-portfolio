@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-// import { SmoothScrollProvider } from "../utils/animations/SmoothScroll";
+import { SmoothScrollProvider } from "../utils/animations/SmoothScroll";
 import {
   Articles,
   SectionTwo,
@@ -22,34 +22,42 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
   // console.log("hey");
 
   return (
-    // <SmoothScrollProvider>
-    <div className={styles.container}>
-      <CursorFollow />
-      <div>
-        <h1>Hello World</h1>
-        <h2>I'm Max</h2>
+    <SmoothScrollProvider>
+      <div className={styles.container}>
+        <CursorFollow />
+        <div>
+          <h1>Hello World</h1>
+          <h2>I'm Max</h2>
+        </div>
+
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <Articles blogPosts={blogPosts} />
+        {/* <NewSection /> */}
+        <WordpressProjects projects={projects.slice(0, 3)} />
+        {/* <FeaturedProjects /> */}
+
+        <Skills />
+
+        {/* <SectionTwo /> */}
+
+        {/* <FeaturedProjects /> */}
+
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
+        <section className={styles.sectionTest}></section>
       </div>
-
-      <section className={styles.sectionTest}></section>
-      <section className={styles.sectionTest}></section>
-      <section className={styles.sectionTest}></section>
-      <Articles blogPosts={blogPosts} />
-      {/* <NewSection /> */}
-      {/* <WordpressProjects projects={projects.slice(0, 3)} /> */}
-      {/* <FeaturedProjects /> */}
-      {/*
-
-      <Skills />
-
-      <SectionTwo />
-
-      <FeaturedProjects /> */}
-
-      <section className={styles.sectionTest}></section>
-      <section className={styles.sectionTest}></section>
-      <section className={styles.sectionTest}></section>
-    </div>
-    // </SmoothScrollProvider>
+    </SmoothScrollProvider>
   );
 };
 

@@ -12,6 +12,7 @@ export const wordpressSectionAnimation = () => {
     ease: "none",
     scrollTrigger: {
       trigger: ".circle-container",
+      scroller: "#smooth-scroll",
       start: "top top",
       toggleActions: "play none reverse pause",
       scrub: true,
@@ -45,7 +46,7 @@ export const wordpressSectionAnimation = () => {
         duration: 1,
         text: "Wordpress Projects",
         ease: "none",
-        delimiter: " ",
+        // delimiter: " ",
       },
       0
     )
@@ -63,7 +64,7 @@ export const wordpressSectionAnimation = () => {
         duration: 1,
         text: "This is the new text",
         ease: "none",
-        delimiter: " ",
+        // delimiter: " ",
       },
       "<"
     )
@@ -79,6 +80,6 @@ export const wordpressSectionAnimation = () => {
       duration: 1,
       text: "Hello baby",
       ease: "none",
-      delimiter: " ",
+      // delimiter: " ",
     });
 };

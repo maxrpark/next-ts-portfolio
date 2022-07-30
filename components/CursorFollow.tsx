@@ -20,35 +20,62 @@ const CursorFollow: NextPage = () => {
     mouse = { x: pos.x, y: pos.y };
   }
 
+  // const moveCoursorFunc = (e: MouseEvent): void => {
+  //   gsap.set(ball.current, { xPercent: -50, yPercent: -50 });
+  //   const speed = 0.35;
+  //   const xSet = gsap.quickSetter(ball.current, "x", "px");
+  //   const ySet = gsap.quickSetter(ball.current, "y", "px");
+
+  //   mouse!.x = e!.x;
+  //   mouse!.y = e!.y;
+
+  //   gsap.ticker.add(() => {
+  //     const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
+  //     pos.x += (mouse.x - pos.x) * dt;
+  //     pos.y += (mouse.y - pos.y) * dt;
+  //     xSet(pos.x);
+  //     ySet(pos.y);
+  //   });
+
+  //   // run costume function
+  //   const target = e.target as HTMLElement;
+  //   articleImageHover(target);
+
+  //   if (
+  //     target &&
+  //     target.parentElement &&
+  //     target.parentElement.classList.contains("isHovering")
+  //   ) {
+  //     ball.current.classList.add("ball-zoom");
+  //     // innerBall.current.textContent = "Read More";
+  //     // console.log(innerBall.current);
+  //   } else {
+  //     ball.current.classList.remove("ball-zoom");
+  //   }
+  // };
   const moveCoursorFunc = (e: MouseEvent): void => {
-    gsap.set(ball.current, { xPercent: -50, yPercent: -50 });
-    const speed = 0.35;
-    const xSet = gsap.quickSetter(ball.current, "x", "px");
-    const ySet = gsap.quickSetter(ball.current, "y", "px");
-
-    mouse!.x = e!.x;
-    mouse!.y = e!.y;
-
-    gsap.ticker.add(() => {
-      const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-      pos.x += (mouse.x - pos.x) * dt;
-      pos.y += (mouse.y - pos.y) * dt;
-      xSet(pos.x);
-      ySet(pos.y);
+    gsap.set(".ball", {
+      xPercent: -50,
+      yPercent: -50,
     });
 
-    // run costume function
-    const target = e.target as HTMLElement;
-    articleImageHover(target);
+    gsap.to("#smooth-scroll .ball", {
+      x: e.clientX,
+      y: e.clientY,
+      z: 0 + "!important",
+    });
 
+    const target = e.target as HTMLElement;
+
+    articleImageHover(target);
     if (
       target &&
       target.parentElement &&
       target.parentElement.classList.contains("isHovering")
     ) {
       ball.current.classList.add("ball-zoom");
-      // innerBall.current.textContent = "Read More";
-      // console.log(innerBall.current);
+      innerBall.current.textContent = "Read More";
+      console.log(innerBall.current);
     } else {
       ball.current.classList.remove("ball-zoom");
     }
@@ -63,14 +90,16 @@ const CursorFollow: NextPage = () => {
 
   useEffect(() => {
     window.addEventListener("resize", getWindowSize);
+    let scrollThing = document.querySelector("#smooth-scroll")! as any;
+
     if (size && size > 960) {
-      window.addEventListener("mousemove", moveCoursorFunc);
+      scrollThing.addEventListener("mousemove", moveCoursorFunc);
       ball.current.style.display = "block";
     } else {
       ball.current.style.display = "none";
     }
     return () => {
-      window.removeEventListener("mousemove", moveCoursorFunc);
+      scrollThing.removeEventListener("mousemove", moveCoursorFunc);
       window.removeEventListener("resize", getWindowSize);
     };
   });
@@ -94,7 +123,6 @@ const Wrapper = styled.section`
     border-radius: 50%;
     pointer-events: none;
     z-index: 1;
-    transition: height 0.2s ease, width 0.2s ease;
     display: flex;
     justify-content: center;
     align-items: center;

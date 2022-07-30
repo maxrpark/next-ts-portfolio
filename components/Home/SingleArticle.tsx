@@ -43,6 +43,7 @@ const Wrapper = styled.div`
   gap: 0.5rem;
   padding: 0.5rem;
   overflow: hidden;
+  z-index: 10;
 
   .image-container {
     overflow: hidden;
