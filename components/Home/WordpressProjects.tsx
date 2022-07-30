@@ -24,8 +24,10 @@ const Sectionthree: NextPage<Props> = ({ projects }) => {
         {projects.map((project: Project) => {
           return (
             <div className='singleProject' key={project.id}>
-              <img src={project.url} alt='' />
-              <h4>{project.name}</h4>
+              <img className='single-project-image' src={project.url} alt='' />
+              <div className='single-project-desc'>
+                <h4>{project.name}</h4>
+              </div>
             </div>
           );
         })}
@@ -73,7 +75,6 @@ const Wrapper = styled.div`
 
   .projects-container {
     display: flex;
-    /* height: 100%; */
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -85,11 +86,27 @@ const Wrapper = styled.div`
     background: white;
     border: 2px solid black;
     pad: 1rem;
+    position: relative;
+    overflow: hidden;
   }
-  img {
+  .single-project-image {
     width: 100%;
-    height: 120px;
+    height: 100%;
     object-fit: cover;
+  }
+  .single-project-desc {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    width: 100%;
+    height: 100%;
+    top: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
   }
 `;
 

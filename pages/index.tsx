@@ -11,7 +11,6 @@ import {
 } from "../components";
 import styles from "../styles/Home.module.css";
 import styled from "styled-components";
-// import { SmoothScroll } from "../utils/animations";
 import { Post } from "../ts/interfaces/globalInterfaces";
 interface Props {
   blogPosts: Post[];
@@ -24,7 +23,7 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
   return (
     <SmoothScrollProvider>
       <div className={styles.container}>
-        <CursorFollow />
+        {/* <CursorFollow /> */}
         <div>
           <h1>Hello World</h1>
           <h2>I'm Max</h2>
@@ -38,7 +37,7 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
         <WordpressProjects projects={projects.slice(0, 3)} />
         {/* <FeaturedProjects /> */}
 
-        <Skills />
+        {/* <Skills /> */}
 
         {/* <SectionTwo /> */}
 

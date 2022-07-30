@@ -48,7 +48,7 @@ const Wrapper = styled.div`
     /* position: relative; */
     height: 100vh;
     overflow: hidden;
-    background-image: url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg");
+    /* background-image: url("https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg"); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

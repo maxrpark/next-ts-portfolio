@@ -30,6 +30,7 @@ export const wordpressSectionAnimation = () => {
   lt.to(".circle", {
     scale: 1,
     duration: 2,
+    background: "#222",
   })
     .to(
       ".projects-container",
@@ -46,40 +47,61 @@ export const wordpressSectionAnimation = () => {
         duration: 1,
         text: "Wordpress Projects",
         ease: "none",
-        // delimiter: " ",
       },
       0
     )
-    .to(".circle", {
-      scale: 1,
-      duration: 1,
-      background: "blue",
-      borderRadius: 0,
-      width: "100vw",
-      height: "20%",
-    })
     .to(
       ".wp-title-text",
       {
         duration: 1,
-        text: "This is the new text",
+        text: "SEO OPTIMIZED",
         ease: "none",
-        // delimiter: " ",
+        color: "yellow",
       },
-      "<"
+      1.2
     )
     .to(
       ".circle",
       {
-        rotate: -90,
-        height: "60%",
-      }
-      // "-=.5"
+        duration: 1,
+        background: "blue",
+        borderRadius: 0,
+        width: "100vw",
+        height: "20%",
+      },
+      "<"
     )
     .to(".wp-title-text", {
       duration: 1,
-      text: "Hello baby",
+      text: "RICH CONTENT",
       ease: "none",
-      // delimiter: " ",
-    });
+      color: "yellow",
+    })
+    .to(
+      ".circle",
+      {
+        duration: 1,
+        rotate: -90,
+        height: "60%",
+      },
+      "<"
+    )
+    .to(".circle", {
+      duration: 1,
+      // rotate: -90,
+      height: "142vmax",
+      width: "142vmax",
+      scale: 0.4,
+      borderRadius: "50%",
+    })
+    .to(
+      ".single-project-desc",
+      {
+        stagger: {
+          amount: 0.3,
+        },
+        yPercent: -100,
+      },
+      "<"
+    );
 };
