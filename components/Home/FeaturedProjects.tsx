@@ -24,7 +24,8 @@ const WordpressProjects: NextPage = () => {
           scrollTrigger: {
             trigger: section as any,
             start: () => "center center",
-            end: () => `+=${cards.scrollWidth - card.offsetWidth}`,
+            scroller: "#smooth-scroll",
+            // end: () => `+=${cards.scrollWidth - card.offsetWidth}`,
             scrub: true,
             pin: true,
             pinSpacing: true,
@@ -46,12 +47,14 @@ const WordpressProjects: NextPage = () => {
     });
   };
   useEffect(() => {
-    animations();
+    setTimeout(() => {
+      animations();
+    }, 1000);
     // dragIt();
   }, []);
   return (
     <Wrapper className='container-wrapper'>
-      {/* <section className='scroll-section --red'>
+      <section className='scroll-section --red'>
         <div className='section__card'>
           <h1 className='section__title'>Section 1</h1>
         </div>
@@ -60,7 +63,7 @@ const WordpressProjects: NextPage = () => {
         <div className='section__card'>
           <h1 className='section__title'>Section 2</h1>
         </div>
-      </section> */}
+      </section>
       <section className='scroll-section' id='horizontal'>
         <div className='section__cards'>
           <div className='section__card'>
@@ -79,7 +82,7 @@ const WordpressProjects: NextPage = () => {
           <h1 className='section__title'>Section 4</h1>
         </div>
       </section> */}
-
+      {/* 
       <section className='scroll-section' id='horizontal'>
         <div className='section__cards'>
           <div className='section__card'>
@@ -92,7 +95,7 @@ const WordpressProjects: NextPage = () => {
             <h1 className='section__title'>Section 3c</h1>
           </div>
         </div>
-      </section>
+      </section> */}
     </Wrapper>
   );
 };

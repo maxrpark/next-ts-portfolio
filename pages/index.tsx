@@ -35,7 +35,7 @@ const Home: NextPage<Props> = ({ blogPosts, projects }) => {
         <Articles blogPosts={blogPosts} />
         {/* <NewSection /> */}
         <WordpressProjects projects={projects.slice(0, 3)} />
-        {/* <FeaturedProjects /> */}
+        <FeaturedProjects />
 
         {/* <Skills /> */}
 
