@@ -113,19 +113,3 @@ export const articleAnimation = () => {
     // ScrollTrigger.update();
   }, 100);
 };
-
-export const articleImageHover = (target: HTMLElement) => {
-  if (target.classList.contains("articleImg")) {
-    gsap.to(target, {
-      scale: 1.3,
-      ease: "none",
-      rotate: 5,
-    });
-  } else {
-    gsap.to(".articleImg", {
-      scale: 1,
-      rotate: 0,
-      ease: "none",
-    });
-  }
-};

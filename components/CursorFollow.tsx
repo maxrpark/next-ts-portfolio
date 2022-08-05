@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
-import { articleImageHover } from "../utils/animations";
 interface Cordinates {
   x: number;
   y: number;
@@ -20,39 +19,6 @@ const CursorFollow: NextPage = () => {
     mouse = { x: pos.x, y: pos.y };
   }
 
-  // const moveCoursorFunc = (e: MouseEvent): void => {
-  //   gsap.set(ball.current, { xPercent: -50, yPercent: -50 });
-  //   const speed = 0.35;
-  //   const xSet = gsap.quickSetter(ball.current, "x", "px");
-  //   const ySet = gsap.quickSetter(ball.current, "y", "px");
-
-  //   mouse!.x = e!.x;
-  //   mouse!.y = e!.y;
-
-  //   gsap.ticker.add(() => {
-  //     const dt = 1.0 - Math.pow(1.0 - speed, gsap.ticker.deltaRatio());
-  //     pos.x += (mouse.x - pos.x) * dt;
-  //     pos.y += (mouse.y - pos.y) * dt;
-  //     xSet(pos.x);
-  //     ySet(pos.y);
-  //   });
-
-  //   // run costume function
-  //   const target = e.target as HTMLElement;
-  //   articleImageHover(target);
-
-  //   if (
-  //     target &&
-  //     target.parentElement &&
-  //     target.parentElement.classList.contains("isHovering")
-  //   ) {
-  //     ball.current.classList.add("ball-zoom");
-  //     // innerBall.current.textContent = "Read More";
-  //     // console.log(innerBall.current);
-  //   } else {
-  //     ball.current.classList.remove("ball-zoom");
-  //   }
-  // };
   const moveCoursorFunc = (e: MouseEvent): void => {
     gsap.set(".ball", {
       xPercent: -50,
@@ -66,8 +32,6 @@ const CursorFollow: NextPage = () => {
     });
 
     const target = e.target as HTMLElement;
-
-    articleImageHover(target);
     if (
       target &&
       target.parentElement &&

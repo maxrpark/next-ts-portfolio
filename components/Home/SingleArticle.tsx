@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   .articleImg {
     width: 100%;
     object-fit: contain;
-    /* transition: var(--transition-1); */
+    transition: var(--transition-1);
   }
   .tags {
     display: flex;
@@ -92,6 +92,9 @@ const Wrapper = styled.div`
     transform: translateY(0);
     background: red;
     height: 25px;
+  }
+  :hover .articleImg {
+    transform: scale(1.5) rotate(-10deg);
   }
 `;
 
