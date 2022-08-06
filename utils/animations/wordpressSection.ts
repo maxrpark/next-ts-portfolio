@@ -30,7 +30,7 @@ export const wordpressSectionAnimation = () => {
   lt.to(".circle", {
     scale: 1,
     duration: 2,
-    background: "#222",
+    background: "var(--black-color-2)",
   })
     .to(
       ".projects-container",
@@ -89,5 +89,10 @@ export const wordpressSectionAnimation = () => {
       width: "142vmax",
       scale: 0.4,
       borderRadius: "50%",
+    })
+    .to(".wp-title-text", {
+      duration: 1,
+      text: "CLICK TO READ MORE",
+      ease: "none",
     });
 };

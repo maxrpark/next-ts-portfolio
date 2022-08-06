@@ -108,6 +108,14 @@ export const articleAnimation = () => {
           duration: 7,
         },
         2
+      )
+      .to(
+        ".article-section__title",
+        {
+          y: -100,
+          opacity: 0,
+        },
+        3.5
       );
 
     // ScrollTrigger.update();

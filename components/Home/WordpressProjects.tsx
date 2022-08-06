@@ -31,6 +31,10 @@ const Sectionthree: NextPage<Props> = ({ projects }) => {
               />
               <div className='single-project-desc face back'>
                 <h4>{project.name}</h4>
+                <p>{project.shortDsc}</p>
+                <a href={project.pageUrl} target='_blank'>
+                  Visit
+                </a>
               </div>
             </div>
           );
@@ -62,7 +66,7 @@ const Wrapper = styled.div`
     height: 142vmax;
     width: 142vmax;
     line-height: 50px;
-    background: black;
+    background: var(--black-color-2);
   }
 
   .wp-title-text {
@@ -101,17 +105,62 @@ const Wrapper = styled.div`
   }
 
   .back {
-    background: red;
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.9);
+
+    h4 {
+      transform: translateY(-130px);
+      transition: var(--transition-1);
+      font-size: 1.25rem;
+    }
+    p {
+      transform: rotateZ(45deg);
+      transform-origin: top right;
+      transition: var(--transition-1);
+      opacity: 0;
+      line-height: 1.5rem;
+      font-size: 1.1rem;
+    }
+    a {
+      border: 2px solid red;
+      height: 30px;
+      width: 200px;
+      margin: 0 auto;
+      line-height: 25px;
+      text-transform: uppercase;
+      transform: translateY(130px);
+      transition: var(--transition-1);
+    }
   }
 
   .singleProject:hover .front {
-    transform: rotateY(-180deg);
-  }
-  .singleProject:hover .back {
-    transform: rotateY(0);
+    transform: rotateY(180deg);
   }
 
+  .singleProject:hover {
+    .back {
+      transform: rotateY(0);
+      h4 {
+        transform: translateY(0);
+        transition-delay: 0.7s;
+      }
+      p {
+        transform: rotateZ(0);
+        transition-delay: 0.6s;
+        opacity: 1;
+      }
+      a {
+        transform: translateY(0);
+        transition-delay: 0.9s;
+      }
+    }
+  }
   @media screen and (max-width: 960px) {
     .projects-container {
       flex-direction: column;
