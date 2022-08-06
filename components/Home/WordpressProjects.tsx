@@ -24,8 +24,12 @@ const Sectionthree: NextPage<Props> = ({ projects }) => {
         {projects.map((project: Project) => {
           return (
             <div className='singleProject' key={project.id}>
-              <img className='single-project-image' src={project.url} alt='' />
-              <div className='single-project-desc'>
+              <img
+                className='single-project-image face front'
+                src={project.url}
+                alt=''
+              />
+              <div className='single-project-desc face back'>
                 <h4>{project.name}</h4>
               </div>
             </div>
@@ -60,19 +64,13 @@ const Wrapper = styled.div`
     line-height: 50px;
     background: black;
   }
-  // title
 
-  .wp-title-container {
-    /* position: absolute;
-    left: 50%; */
-  }
   .wp-title-text {
     font-size: 3rem;
     color: white;
   }
 
   /// Projects
-
   .projects-container {
     display: flex;
     width: 100%;
@@ -83,30 +81,42 @@ const Wrapper = styled.div`
   .singleProject {
     height: 300px;
     width: 100%;
-    background: white;
-    border: 2px solid black;
-    pad: 1rem;
     position: relative;
-    overflow: hidden;
+    perspective: 1500px;
+    transform-style: preserve-3d;
   }
-  .single-project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  @media screen and (max-width: 960px) {
+    height: 400px;
   }
-  .single-project-desc {
-    background: rgba(0, 0, 0, 0.5);
+
+  .face {
+    transition: all 1s linear;
+    backface-visibility: hidden;
     position: absolute;
-    width: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    top: 100%;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: white;
+    visibility: visible;
+  }
+
+  .back {
+    background: red;
+    transform: rotateY(180deg);
+  }
+
+  .singleProject:hover .front {
+    transform: rotateY(-180deg);
+  }
+  .singleProject:hover .back {
+    transform: rotateY(0);
+  }
+
+  @media screen and (max-width: 960px) {
+    .projects-container {
+      flex-direction: column;
+      padding: 1rem;
+    }
   }
 `;
 

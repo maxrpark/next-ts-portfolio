@@ -56,7 +56,6 @@ export const wordpressSectionAnimation = () => {
         duration: 1,
         text: "SEO OPTIMIZED",
         ease: "none",
-        color: "yellow",
       },
       1.2
     )
@@ -64,7 +63,6 @@ export const wordpressSectionAnimation = () => {
       ".circle",
       {
         duration: 1,
-        background: "blue",
         borderRadius: 0,
         width: "100vw",
         height: "20%",
@@ -75,7 +73,6 @@ export const wordpressSectionAnimation = () => {
       duration: 1,
       text: "RICH CONTENT",
       ease: "none",
-      color: "yellow",
     })
     .to(
       ".circle",
@@ -88,20 +85,9 @@ export const wordpressSectionAnimation = () => {
     )
     .to(".circle", {
       duration: 1,
-      // rotate: -90,
       height: "142vmax",
       width: "142vmax",
       scale: 0.4,
       borderRadius: "50%",
-    })
-    .to(
-      ".single-project-desc",
-      {
-        stagger: {
-          amount: 0.3,
-        },
-        yPercent: -100,
-      },
-      "<"
-    );
+    });
 };
