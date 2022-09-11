@@ -1,9 +1,9 @@
 import { articleAnimation } from "./articles";
 import { wordpressSectionAnimation } from "./wordpressSection";
-import HorizontalScollingAnimation from "./HorizontalScolling";
-// import SmoothScroll from "./SmoothScroll";
+import HorizontalScrollingAnimation from "./HorizontalScrollingAnimation";
+
 export {
   articleAnimation,
   wordpressSectionAnimation,
-  HorizontalScollingAnimation,
+  HorizontalScrollingAnimation,
 };

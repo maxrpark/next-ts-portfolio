@@ -16,7 +16,12 @@
 }
 .sectionTest {
   height: 600px;
-  background: black;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  border: 2px solid black;
 }
 
 .card {

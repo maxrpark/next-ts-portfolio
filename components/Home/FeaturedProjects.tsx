@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import type { NextPage } from "next";
 import styled from "styled-components";
-import { HorizontalScollingAnimation } from "../../utils/animations";
+import { HorizontalScrollingAnimation } from "../../utils/animations";
 interface Props {
   type: string;
   animationType?: string;
@@ -10,8 +10,8 @@ interface Props {
 const WordpressProjects: NextPage<Props> = ({ type, animationType }) => {
   useEffect(() => {
     setTimeout(() => {
-      HorizontalScollingAnimation(type);
-    }, 1000);
+      HorizontalScrollingAnimation(type);
+    }, 100);
   }, []);
   return (
     <Wrapper className='container-wrapper'>
@@ -20,13 +20,13 @@ const WordpressProjects: NextPage<Props> = ({ type, animationType }) => {
           className={`${animationType ? animationType : ""} section__cards `}
         >
           <div className='section__card'>
-            <h1 className='section__title'>Section 3a</h1>
+            <h1 className='section__title'>ONE</h1>
           </div>
           <div className='section__card'>
-            <h1 className='section__title'>Section 3b</h1>
+            <h1 className='section__title'>TWO</h1>
           </div>
           <div className='section__card'>
-            <h1 className='section__title'>Section 3c</h1>
+            <h1 className='section__title'>THREE</h1>
           </div>
         </div>
       </section>
@@ -61,11 +61,8 @@ const Wrapper = styled.div`
   }
 
   .start-left {
-    display: flex;
     flex-direction: row-reverse;
     justify-content: unset;
-    gap: 2rem;
-    padding: 2rem;
   }
 
   .section__card {
@@ -78,9 +75,9 @@ const Wrapper = styled.div`
     flex-shrink: 0;
     justify-content: center;
   }
-  .section__card + .section__card {
+  /* .section__card + .section__card {
     margin-left: 5vw;
-  }
+  } */
 
   .section__title {
     color: #1b2b34;

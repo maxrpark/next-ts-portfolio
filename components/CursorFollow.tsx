@@ -25,7 +25,7 @@ const CursorFollow: NextPage = () => {
       yPercent: -50,
     });
 
-    gsap.to("#smooth-scroll .ball", {
+    gsap.to(".ball", {
       x: e.clientX,
       y: e.clientY,
       z: 0 + "!important",
@@ -54,22 +54,22 @@ const CursorFollow: NextPage = () => {
 
   useEffect(() => {
     window.addEventListener("resize", getWindowSize);
-    let scrollThing = document.querySelector("#smooth-scroll")! as any;
+    // let scrollThing = document.querySelector("#smooth-scroll")! as any;
 
     if (size && size > 960) {
-      scrollThing.addEventListener("mousemove", moveCoursorFunc);
+      window.addEventListener("mousemove", moveCoursorFunc);
       ball.current.style.display = "block";
     } else {
       ball.current.style.display = "none";
     }
     return () => {
-      scrollThing.removeEventListener("mousemove", moveCoursorFunc);
+      window.removeEventListener("mousemove", moveCoursorFunc);
       window.removeEventListener("resize", getWindowSize);
     };
   });
   return (
     <Wrapper>
-      <div className='ball' ref={ball}>
+      <div id='ball' className='ball' ref={ball}>
         {/* <div className='ball-inner' ref={innerBall}></div> */}
       </div>
     </Wrapper>

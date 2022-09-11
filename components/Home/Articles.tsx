@@ -11,7 +11,9 @@ type Props = {
 
 const SectionOne: NextPage<Props> = ({ blogPosts }) => {
   useEffect(() => {
-    articleAnimation();
+    setTimeout(() => {
+      articleAnimation();
+    }, 100);
   }, []);
   return (
     <Wrapper className='main'>
@@ -23,11 +25,9 @@ const SectionOne: NextPage<Props> = ({ blogPosts }) => {
             <h2 className='article-title'>World</h2>
           </div>
           <div className='article-section__subtitle'>
-            {/* <h3>Read them on Medium</h3> */}
             <h3>My</h3>
             <h3>latest</h3>
             <h3>Articles</h3>
-            {/* <h3>Medium</h3> */}
           </div>
         </div>
 
@@ -70,8 +70,6 @@ const Wrapper = styled.div`
     display: inline-block;
   }
   .article-section__subtitle {
-    /* transform: translateY(-100%);
-    opacity: 1; */
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -82,16 +80,6 @@ const Wrapper = styled.div`
   .article-section__subtitle h3 {
     transform: translateY(-100%);
     opacity: 0;
-  }
-  .article-title {
-    /* position: absolute;
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    z-index: 1;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%); */
   }
 `;
 

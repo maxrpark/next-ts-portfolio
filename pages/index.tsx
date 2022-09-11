@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { SmoothScrollProvider } from "../utils/animations/SmoothScroll";
 import {
   Articles,
   SectionTwo,
@@ -18,47 +17,40 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ blogPosts, projects }) => {
-  // console.log("hey");
-
   return (
-    <SmoothScrollProvider>
-      <div className={styles.container}>
-        {/* <CursorFollow /> */}
-        <div>
-          <h1>Hello World</h1>
-          <h2>I'm Max</h2>
-        </div>
-
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        {/* <Articles blogPosts={blogPosts} /> */}
-        {/* <NewSection /> */}
-        {/* <WordpressProjects projects={projects.slice(0, 3)} /> */}
-        <FeaturedProjects type={"from-right"} />
-        <FeaturedProjects type={"from-left"} animationType={"start-left"} />
-        {/* <FeaturedProjects /> */}
-
-        {/* <Skills /> */}
-
-        {/* <SectionTwo /> */}
-
-        {/* <FeaturedProjects /> */}
-
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
-        <section className={styles.sectionTest}></section>
+    <div className={styles.container}>
+      <CursorFollow />
+      <div>
+        <h1>Hello World</h1>
+        <h2>I'm Max</h2>
       </div>
-    </SmoothScrollProvider>
+
+      <section className={styles.sectionTest}>1</section>
+      <section className={styles.sectionTest}>2</section>
+      <section className={styles.sectionTest}>3</section>
+      <Articles blogPosts={blogPosts} />
+      {/* <NewSection /> */}
+      <WordpressProjects projects={projects.slice(0, 3)} />
+      <FeaturedProjects type={"from-right"} />
+      <FeaturedProjects type={"from-left"} animationType={"start-left"} />
+
+      {/* <Skills /> */}
+
+      {/* <SectionTwo /> */}
+
+      <section className={styles.sectionTest}>4</section>
+      <section className={styles.sectionTest}>5</section>
+      <section className={styles.sectionTest}>6</section>
+      <section className={styles.sectionTest}>7</section>
+      <section className={styles.sectionTest}>8</section>
+      <section className={styles.sectionTest}>9</section>
+      <section className={styles.sectionTest}>10</section>
+      <section className={styles.sectionTest}>11</section>
+      <section className={styles.sectionTest}>12</section>
+      <section className={styles.sectionTest}>13</section>
+      <section className={styles.sectionTest}>14</section>
+      <section className={styles.sectionTest}>End</section>
+    </div>
   );
 };
 

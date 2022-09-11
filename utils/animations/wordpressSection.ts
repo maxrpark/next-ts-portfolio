@@ -12,7 +12,7 @@ export const wordpressSectionAnimation = () => {
     ease: "none",
     scrollTrigger: {
       trigger: ".circle-container",
-      scroller: "#smooth-scroll",
+      // scroller: "#smooth-scroll",
       start: "top top",
       toggleActions: "play none reverse pause",
       scrub: true,

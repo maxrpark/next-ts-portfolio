@@ -2,10 +2,16 @@ import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const HorizontalScollingAnimation = (type: string) => {
-  gsap.utils.toArray(`.${type}`).forEach((section) => {
-    const cards = (section as HTMLDivElement).querySelector(".section__cards")!;
-    const card = (section as HTMLDivElement).querySelector(".section__card")!;
+const HorizontalScrollingAnimation = (type: string) => {
+  const sections = gsap.utils.toArray(`.${type}`);
+
+  sections.forEach((singleSection) => {
+    const cards = (singleSection as HTMLDivElement).querySelector(
+      ".section__cards"
+    )!;
+    const card = (singleSection as HTMLDivElement).querySelector(
+      ".section__card"
+    )!;
     let tl;
     let endAni: string;
 
@@ -26,9 +32,8 @@ const HorizontalScollingAnimation = (type: string) => {
     }
 
     ScrollTrigger.create({
-      trigger: section as any,
+      trigger: singleSection as HTMLElement,
       start: () => "center center",
-      scroller: "#smooth-scroll",
       end: () => endAni,
       scrub: true,
       pin: true,
@@ -40,4 +45,4 @@ const HorizontalScollingAnimation = (type: string) => {
   });
 };
 
-export default HorizontalScollingAnimation;
+export default HorizontalScrollingAnimation;
